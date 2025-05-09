@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'screens/splash_screen.dart';
-import 'screens/login_screen.dart';
-import 'screens/welcome_screen.dart';
+import 'screens/sign_up.dart'; // Import the sign-up page
+import 'screens/mood_garden_welcome_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,18 +13,21 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Dys-AI',
+      title: 'MoodGarden',
       theme: ThemeData(
         fontFamily: 'Montserrat',
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        primaryColor: const Color(0xFF2E8B57), // Forest green for MoodGarden
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: const Color(0xFF2E8B57),
+          brightness: Brightness.light,
+        ),
         useMaterial3: true,
       ),
-      /*home: const SplashScreen(),*/
-      initialRoute: '/',
+      // Changed the home to start with SignUpScreen
+      home: const SignUpScreen(),
+      // Define routes to preserve navigation to other screens
       routes: {
-        '/': (context) => const SplashScreen(),
-        '/login': (context) => const LoginScreen(),
-        '/welcome': (context) => const WelcomeScreen(),
+        '/mood_garden_welcome': (context) => const MoodGardenWelcomeScreen(),
       },
     );
   }
